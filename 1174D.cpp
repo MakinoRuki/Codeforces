@@ -1,3 +1,4 @@
+// 转化成前缀xor
 #include <iostream>
 #include <cstdio>
 #include <cstring>
