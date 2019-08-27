@@ -1,3 +1,6 @@
+// 写一写发现第i个数跟第i+n个数的关系应该是交替的+1,-1。
+// n为偶数时，因为一定会分成同奇同偶的两部分所以det>=2，所以无解。
+
 #include <iostream>
 #include <cstdio>
 #include <cstring>
