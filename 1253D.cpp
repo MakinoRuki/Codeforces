@@ -34,6 +34,7 @@ int main() {
 	int end = 0;
 	pars.clear();
 	int tot=0;
+	// 近似线段合并。
 	for (int i = 1; i <= n; ++i) {
 		if (i > end) {
 			if (pars.size()) tot += pars.size()-1;
