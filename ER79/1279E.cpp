@@ -18,6 +18,7 @@ int main() {
 		cin>>n>>k;
 		p[0] = p[1] = 1;
 		for (int i =2 ; i <= n; ++i) {
+			// 当方案数过多(多于k,k<=10^18)时，可以不必再计算。
 			if (p[i-1] <= inf/(ll)i) {
 				p[i] = p[i-1] * (ll)i;
 			} else {
