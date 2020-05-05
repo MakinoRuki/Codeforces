@@ -9,3 +9,11 @@ C. 分情况讨论题。s中最小的字符出现次数<k则取s的第k个字符
 D. 假设总共需要增加det个，当前有a个，那么设分裂x个；必须要保证det-(a+x)==0 || det-(a+x)>=(a+x)。
 
    另外考虑如果当前det-a>0&&det-a<a，那么要分裂det-a个。
+   
+E. dp[i,j]表示前i棵树处理完，多余j个red berry是否可能。
+
+   那么转移时，对于第i棵树假设我们拿出det个red berry，剩下的a-det个red先同色组合，多余的必须借助blue berry补成k个。
+   
+   再有剩余的blue berry，就只能同色组合。因此如果最终dp[n,i]为true，那么(tot-i)/k的最大值就是答案。
+   
+   (剩余red已在每棵树中跟blue配完，再剩下的就是单纯的blue，可以同色组合，直接除k)。
