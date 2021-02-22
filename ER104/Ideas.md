@@ -1,4 +1,4 @@
-A. 看是否prefix_sum[i-1]>=a[i]。
+A. 排序后只要不跟minv相等的人eventually都会win。
 
 B. 找规律。
 
