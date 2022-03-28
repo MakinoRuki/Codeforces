@@ -23,19 +23,37 @@ int a[N];
 int main() {
   cin>>t;
   for (int cas=1; cas<=t; ++cas) {
-    ll b,x,y;
-    scanf("%d%lld%lld%lld", &n, &b, &x, &y);
-    ll tot = 0LL;
-    ll sum = 0LL;
-    for (int i = 1; i <= n; ++i) {
-      if (sum + x <= b) {
-        sum += x;
-      } else {
-        sum -= y;
+    scanf("%d", &n);
+    string s;
+    cin>>s;
+    int i = 0;
+    int tot=0;
+    while(i < s.size()) {
+      if (i + 1 >= s.size()) {
+        break;
       }
-      tot += sum;
+      if (s[i] == '(') {
+        i += 2;
+        tot++;
+      } else {
+        if (s[i + 1] == ')') {
+          i += 2;
+          tot++;
+        } else {
+          int j = i+1;
+          while(j < s.size() && s[j] != ')') {
+            j++;
+          }
+          if (j >= s.size()) {
+            break;
+          } else {
+            tot++;
+            i = j+1;
+          }
+        }
+      }
     }
-    printf("%lld\n", tot);
+    printf("%d %d\n", tot, (int)s.size() - i);
   }
   return 0;
 }
