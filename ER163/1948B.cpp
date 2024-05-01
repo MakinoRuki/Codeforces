@@ -34,26 +34,29 @@ int main() {
     vector<int> ans;
     ans.clear();
     bool ok=true;
-    for (int i = n; i >= 1; --i) {
-      if (i == n) {
+    for (int i = 1; i <= n; ++i) {
+      if (a[i] < 10) {
         ans.push_back(a[i]);
       } else {
-        if (a[i] > ans.back()) {
-          if (a[i] < 10) {
-            ok=false;
-            break;
-          }
-          int x=a[i]/10;
-          int y=a[i]%10;
-          if (x <= y && y <= ans.back()) {
-            ans.push_back(y);
-            ans.push_back(x);
-          } else {
-            ok=false;
-            break;
-          }
-        } else {
+        int x=a[i]/10;
+        int y=a[i]%10;
+        if (x > y) {
           ans.push_back(a[i]);
+        } else {
+          if (ans.empty() || x >= ans.back()) {
+            ans.push_back(x);
+            ans.push_back(y);
+          } else {
+            ans.push_back(a[i]);
+          }
+        }
+      }
+    }
+    if (ok) {
+      for (int i = 1; i < ans.size(); ++i) {
+        if (ans[i] < ans[i-1]) {
+          ok=false;
+          break;
         }
       }
     }
