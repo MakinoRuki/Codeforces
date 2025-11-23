@@ -45,6 +45,7 @@ int main() {
     }
     ll ans=0LL;
     if (!v1.empty()) {
+      sort(v1.begin(), v1.end());
       for (int i = 0; i < v0.size(); ++i) {
         ans += v0[i];
       }
