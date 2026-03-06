@@ -1,4 +1,4 @@
-/* dfdsfd */
+/* 设出现次数最少的app出现了x次，那么s<=x+1。枚举了s之后再枚举每种app，优先看是否能全塞满s，否则看能不能把余数补成s-1。 */
 
 #include <iostream>
 #include <cstdio>
