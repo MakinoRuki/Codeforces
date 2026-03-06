@@ -1,4 +1,5 @@
- 
+/* 只看邻近两个点能不能绕过它即可。 */
+
 #include <iostream>
 #include <sstream>
 #include <cstdio>
