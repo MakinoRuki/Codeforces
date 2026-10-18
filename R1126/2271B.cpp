@@ -29,30 +29,42 @@ const ll base2 = 23333LL;
 const int inf = 1000000010;
 const int base = 337;
 
-int t;
-int a, b;
+int n, k, t;
+int cnt[N];
 
 int main() {
   scanf("%d", &t);
 
   for (int cas = 1; cas <= t; ++cas) {
-    scanf("%d%d", &a, &b);
+    scanf("%d%d", &n, &k);
 
-    int ans = inf;
+    for (int i = 0; i <= n; ++i) {
+      cnt[i] = 0;
+    }
 
-    for (int w = 0; w <= a; ++w) {
-      int z = a - w;
+    for (int i = 1; i <= n; ++i) {
+      int x;
+      scanf("%d", &x);
+      ++cnt[x];
+    }
 
-      if (w - z == b) {
-        ans = min(ans, a);
+    bool flag = false;
+
+    for (int i = 0; i <= n; ++i) {
+      int lef = cnt[i] / 2;
+      int rig = (cnt[i] + 1) / 2;
+
+      if (rig < k) {
+        break;
       }
 
-      if (w - z + 1 == b || w - z - 1 == b) {
-        ans = min(ans, a + 1);
+      if (lef < k) {
+        flag = true;
+        break;
       }
     }
 
-    printf("%d\n", ans == inf ? -1 : ans);
+    printf("%s\n", flag ? "YES" : "NO");
   }
 
   return 0;
